@@ -47,9 +47,12 @@ Object.prototype.keys = function ()
 
 // Listen for any message, say to him/her in the room
 bot.addListener('message', function (from, to, message) {
-	if (message.indexOf("cat")!=-1)
-	{
-    	bot.say(config.channels[0],'meow '+emojis[Math.floor(Math.random()*emojis.length)]);
-    }
-
+  if (message.indexOf("cat")!=-1)
+  {
+      var randomnumber = (Math.floor(Math.random()*20))
+      // console.log(randomnumber);
+      if (randomnumber == 2) { 
+        bot.say(config.channels[0],'meow '+emojis[Math.floor(Math.random()*emojis.length)]);
+      } 
+  }	
 });
