@@ -110,7 +110,8 @@ class LogBot(irc.IRCClient):
         #     self.msg(channel, msg)
         #     print("<%s> %s" % (self.nickname, msg))
 
-        if (msg.find("cat")!=-1):
+        wordlist = msg.split()
+        if "cat" in wordlist:
             if (random.randint(0,15)==1): #make sure it only gets called with a chance of 1/15
                 msg = "meow "+emojilist[random.randint(0,len(emojilist)-1)];
                 self.msg(channel,msg)
