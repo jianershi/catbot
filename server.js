@@ -49,7 +49,7 @@ Object.prototype.keys = function ()
 bot.addListener('message', function (from, to, message) {
   if (message.indexOf("cat")!=-1)
   {
-      var randomnumber = (Math.floor(Math.random()*20))
+      var randomnumber = (Math.floor(Math.random()*15))
       // console.log(randomnumber);
       if (randomnumber == 2) { 
         bot.say(config.channels[0],'meow '+emojis[Math.floor(Math.random()*emojis.length)]);
