@@ -119,6 +119,22 @@ class LogBot(irc.IRCClient):
                 return
             return
 
+    def kickedFrom(self, channel, kicker, message):
+        self.logger.log("I was kicked from %s" % channel)
+        print("I was kicked from %s" % channel)
+        return
+
+    def left(self, channel):
+        self.logger.log("I left %s" % channel)
+        print("I left %s" % channel)
+        return
+
+    def quit(self, message=''):
+        self.logger.log("I quit the server")
+        print("I quit the server")
+        return
+
+
     # def action(self, user, channel, msg):
     #     """This will get called when the bot sees someone do an action."""
     #     user = user.split('!', 1)[0]
