@@ -66,7 +66,7 @@ class MessageLogger:
 class LogBot(irc.IRCClient):
     """A logging IRC bot."""
     
-    nickname = "catbot"
+    nickname = "catbotuiuc"
     
     def connectionMade(self):
         irc.IRCClient.connectionMade(self)
@@ -86,11 +86,13 @@ class LogBot(irc.IRCClient):
 
     def signedOn(self):
         """Called when bot has succesfully signed on to server."""
+        print("Signed On")
         self.join(self.factory.channel)    
 
 
     def joined(self, channel):
         """This will get called when the bot joins the channel."""
+        print("joinned")
         self.logger.log("[I have joined %s]" % channel)
 
     def privmsg(self, user, channel, msg):
@@ -135,6 +137,8 @@ class LogBot(irc.IRCClient):
         print("I quit the server")
         return
 
+    def myInfo(self, servername, version, umodes, cmodes):
+        print("server name: %s v: %s umodes: %s cmodes: %s" % (servername,version,umodes,cmodes))
 
     # def action(self, user, channel, msg):
     #     """This will get called when the bot sees someone do an action."""
