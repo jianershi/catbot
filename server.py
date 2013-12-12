@@ -96,7 +96,7 @@ class LogBot(irc.IRCClient):
     def privmsg(self, user, channel, msg):
         """This will get called when the bot receives a message."""
         user = user.split('!', 1)[0]
-        self.logger.log("<%s> %s" % (user, msg))
+        
 
         # Check to see if they're sending me a private message
         if channel == self.nickname:
@@ -112,6 +112,7 @@ class LogBot(irc.IRCClient):
 
         wordlist = msg.split()
         if "cat" in wordlist:
+            self.logger.log("<%s> %s" % (user, msg))
             if (random.randint(0,15)==1): #make sure it only gets called with a chance of 1/15
                 msg = "meow "+emojilist[random.randint(0,len(emojilist)-1)];
                 self.msg(channel,msg)
